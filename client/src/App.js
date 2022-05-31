@@ -18,7 +18,6 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="" element={<MainPage />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/myclasses" element={<MyClasses />} />
@@ -31,6 +30,7 @@ function App() {
           <Route path="/mygyms" element={<MyGyms />} />
           <Route path="/addgym" element={<AddGym />} />
           <Route path="/addclass" element={<AddClass />} />
+          <Route path="*" element={<MainPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

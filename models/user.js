@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 const mongoose = require("mongoose");
 const npmValidator = require("validator");
 const bcrypt = require("bcryptjs");

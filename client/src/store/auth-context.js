@@ -36,9 +36,10 @@ export const AuthContextProvider = (props) => {
   const userIsLoggedIn = !!token;
   const logoutHandler = useCallback(() => {
     setToken(null);
-    setRole("CLIENT");
+    setRole(null);
     setName(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
     localStorage.removeItem("name");
   }, []);
   const loginHandler = (token, role, name) => {
@@ -59,7 +60,9 @@ export const AuthContextProvider = (props) => {
     logout: logoutHandler,
   };
   return (
-    <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>
+      {props.children}
+    </AuthContext.Provider>
   );
 };
 export default AuthContext;

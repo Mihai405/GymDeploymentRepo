@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const path = require("path");
 const express = require("express");
 require("./db/mongoose");
 const cors = require("cors");
@@ -8,25 +8,6 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(cors());
-
-const whitelist = [
-  "http://localhost:3000",
-  "http://localhost:4000",
-  "https://dashboard.heroku.com/apps/gympadapp/settings",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    console.log("** Origin of request " + origin);
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable");
-      callback(null, true);
-    } else {
-      console.log("Origin rejected");
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
-app.use(cors(corsOptions));
 
 app.use(express.json());
 

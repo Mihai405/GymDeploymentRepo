@@ -8,7 +8,7 @@ const Layout = (props) => {
   const authCtx = useContext(AuthContext);
   return (
     <Fragment>
-      {authCtx.role === "CLIENT" && <NavBar />}
+      {authCtx.role !== "TRAINER" && authCtx.role !== "ADMIN" && <NavBar />}
       {authCtx.role === "TRAINER" && <NavBarTrainer />}
       {authCtx.role === "ADMIN" && <NavbarAdmin />}
       <main style={{ marginTop: "100px" }}>{props.children}</main>

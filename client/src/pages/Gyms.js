@@ -22,10 +22,16 @@ function Gyms() {
   const fetchGymsHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
+    let url;
+    if (authCtx.isLoggedIn) {
+      url = "/trainers/availableGyms";
+    } else {
+      url = "/gyms";
+    }
     try {
-      const response = await fetch("/trainers/availableGyms", {
+      const response = await fetch(url, {
         headers: {
-          Authorization: authCtx.token,
+          Authorization: authCtx.isLoggedIn ? authCtx.token : "",
         },
       });
       if (!response.ok) {

@@ -58,7 +58,7 @@ function GymCard({ name, _id, removeJoinedGymHandler, mappedFrom }) {
           <CardMedia
             component="img"
             height="300"
-            image={`http://localhost:4000/gyms/${_id}/image`}
+            image={`/gyms/${_id}/image`}
           />
         </CardContent>
         {authCtx.role === "TRAINER" && mappedFrom !== "MyGyms" && (

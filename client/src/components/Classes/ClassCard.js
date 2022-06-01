@@ -70,7 +70,7 @@ export default function ClassCard({
           component="img"
           alt="green iguana"
           height="170"
-          image={`http://localhost:4000/classes/${_id}/image`}
+          image={`/classes/${_id}/image`}
         />
         <CardContent>
           <Grid container>
